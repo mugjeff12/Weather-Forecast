@@ -13,7 +13,12 @@ st.subheader(f"{option} for the next {days} days in {place}")
 #dates=["2022-09-09","2022-09-10","2022-09-11"]
 #temperatures =[9,10,11]
 
-dates,temperatures = get_data(place,days,option)
+filtered_data = get_data(place,days,option)
 
-figure = px.line(x=dates,y=temperatures,labels={"x":"Date","y":"Temperature"})
-st.plotly_chart(figure)
+if option == "Temperature":
+    filtered_data = [x['main']['temp'] for x in filtered_data]
+    figure = px.line(x=[i for i in range(days)],y=filtered_data,labels={"x":"Date","y":"Temperature"})
+    st.plotly_chart(figure)
+
+if option == "Sky":
+    filtered_data = [x['weather'][0]['main'] for x in filtered_data]
