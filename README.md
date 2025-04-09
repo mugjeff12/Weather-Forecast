@@ -99,11 +99,7 @@ Add any other dependencies you use in `backend.py`.
 
 ---
 
-## 📌 Screenshots (Optional - Add Here)
 
-You can add preview images or a `.gif` of the app running here to showcase how it works.
-
----
 
 ## ✨ Future Ideas
 
